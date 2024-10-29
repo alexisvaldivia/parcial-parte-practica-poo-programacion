@@ -1,16 +1,21 @@
 export default class Account {
     static idAccount = 0
-    #balance; #owner; #id;
+    #balance; #owner; #id; cbu;
 
     constructor(balance, owner) {
         Account.idAccount++;
         this.#id = Account.idAccount;
         this.#balance = balance;
         this.#owner = owner;
+        this.cbu = `${owner}${this.#id}`;
     }
 
     getId() {
         return this.#id;
+    }
+
+    getCbu() {
+        return this.cbu;
     }
 
     getBalance() {

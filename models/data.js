@@ -7,11 +7,20 @@ const users = [
     new User('Luca', '1234'),
 ]
 
-users[0].addAccount(new Account(1200, users[0].username));
-users[0].addAccount(new Account(5000, users[0].username));
-users[1].addAccount(new Account(3000, users[1].username));
-users[1].addAccount(new Account(3500, users[1].username));
-users[2].addAccount(new Account(2000, users[2].username));
-users[2].addAccount(new Account(5500, users[2].username));
+const accounts = [
+    new Account(1200, users[0].username),
+    new Account(5000, users[0].username),
+    new Account(3000, users[1].username),
+    new Account(3500, users[1].username),
+    new Account(2000, users[2].username),
+    new Account(5500, users[2].username),
+]
 
-export { users }
+users[0].addAccount(accounts[0])
+users[0].addAccount(accounts[1])
+users[1].addAccount(accounts[2])
+users[1].addAccount(accounts[3])
+users[2].addAccount(accounts[4])
+users[2].addAccount(accounts[5])
+
+export { users, accounts }

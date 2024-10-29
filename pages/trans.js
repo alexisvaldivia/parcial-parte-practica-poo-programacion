@@ -1,5 +1,5 @@
-import { users } from "../models/data.js";
-
+import { accounts, users } from "../models/data.js";
+console.log(users)
 function $(el) {
     return document.getElementById(el);
 }
@@ -37,9 +37,9 @@ transForm.addEventListener('submit', (e) => {
 
     const amount = parseFloat(amountToTransfer.value);
 
-    // Validación de importe positivo
+    // Validación de import
     if (amount <= 0) {
-        return alert('El monot debe ser mayor que 0');
+        return alert('El monto debe ser mayor que 0');
     }
 
     // Encontrar la cuenta de origen del usuario logueado
@@ -49,13 +49,13 @@ transForm.addEventListener('submit', (e) => {
     }
 
     // Encontrar el usuario y la cuenta de destino
-    const userToTransfer = users.find(el => el.username === destinationAcc.value);
+    const userToTransfer = accounts.find(acc => acc.cbu === destinationAcc.value);
     if (!userToTransfer) {
         return alert('La cuenta no existe');
     }
 
     // Evitar transferencia a la misma cuenta
-    const destinationAccount = userToTransfer.accounts[0];
+    const destinationAccount = userToTransfer;
     if (originAccount.getId() === destinationAccount.getId()) {
         return alert('No puede transferir ya que la cuenta origen y destino son la misma');
     }
@@ -66,3 +66,5 @@ transForm.addEventListener('submit', (e) => {
 
     alert('Transferencia realizada con éxito');
 });
+
+console.log(users);
